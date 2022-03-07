@@ -6,6 +6,7 @@ import glob
 import hashlib
 from pprint import pprint
 import re
+import time
 
 from PIL import Image, UnidentifiedImageError
 import exifread
@@ -101,7 +102,7 @@ def upload(root_filepath, already_uploaded, signatures):
             # Don't upload if it appears to be a thumbnail
             #
             width, height = extract_dimensions(filepath)
-            if width < 600:
+            if width < 300:
                 print("Probably a thumbnail; skipping")
                 continue
 
